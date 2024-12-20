@@ -7,9 +7,10 @@ bool isDiagonalMatrix(int mat[4][4])
     {
         for(int j=0;j<4;j++)
         {
-            if ((i!=j) && (mat[i][j]==0))
+            if ((i!=j) && (mat[i][j]!=0))
             {
-                return true;
+                return false;
+                break;
             }
         }
     }
@@ -18,7 +19,7 @@ bool isDiagonalMatrix(int mat[4][4])
 int main() 
 {
     int mat[4][4] = {
-        {4,0,0,0},
+        {4,0,2,0},
         {0,7,0,0},
         {0,0,5,0},
         {0,0,0,1}
