@@ -1,38 +1,38 @@
-//Diagonal Matrix
 #include <iostream>
 using namespace std;
+
+// Function to check if a matrix is a diagonal matrix
 bool isDiagonalMatrix(int mat[4][4])
 {
-    for(int i=0;i<4;i++)
+    for (int i = 0; i < 4; i++)
     {
-        for(int j=0;j<4;j++)
+        for (int j = 0; j < 4; j++)
         {
-            if ((i!=j) && (mat[i][j]!=0))
+            if (i != j && mat[i][j] != 0)
             {
-                return false;
-                break;
+                return false; // Not a diagonal matrix
             }
         }
     }
-    return 0;
+    return true; // It is a diagonal matrix
 }
-int main() 
+int main()
 {
     int mat[4][4] = {
-        {4,0,2,0},
-        {0,7,0,0},
-        {0,0,5,0},
-        {0,0,0,1}
+        {4, 0, 0, 0},
+        {0, 7, 0, 0},
+        {0, 0, 5, 0},
+        {0, 0, 0, 1}
     };
-    bool ans=false;
-    ans=isDiagonalMatrix(mat);
-    if(ans)
+
+    bool ans = isDiagonalMatrix(mat);
+    if (ans)
     {
-        cout<<"Yes, It is Diagonal Matrix";
+        cout << "Yes, it is a diagonal matrix";
     }
     else
     {
-        cout<<"No, It is Diagonal Matrix";
+        cout << "No, it is not a diagonal matrix";
     }
     return 0;
 }
