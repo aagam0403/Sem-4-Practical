@@ -25,6 +25,7 @@ int main()
     };
 
     bool ans = isDiagonalMatrix(mat);
+    //printing wheather it is diagonal matrix or not
     if (ans)
     {
         cout << "Yes, it is a diagonal matrix";
