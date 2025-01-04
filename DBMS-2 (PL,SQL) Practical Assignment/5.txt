@@ -1,9 +1,0 @@
-DECLARE
-a integer := 3;
-
-BEGIN
-for i in 1..10 loop
-	dbms_output.put_line(a||'*'||i||'='||a*i);
-end loop;
-end;
-/

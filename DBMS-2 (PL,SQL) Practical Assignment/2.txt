@@ -1,6 +1,0 @@
-BEGIN
-FOR i IN 1..100 LOOP
-DBMS_output.put_line('N = '||i);
-END LOOP;
-end;
-/
