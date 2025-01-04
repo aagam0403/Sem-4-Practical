@@ -1,0 +1,12 @@
+declare
+tsum number:=0;
+
+begin
+for i in 1..100 loop
+	if mod(i, 2) = 0 then
+		tsum:=tsum+i;
+	end if;
+end loop;
+	dbms_output.put_line('The Sum of number is = '||tsum);
+end;
+/

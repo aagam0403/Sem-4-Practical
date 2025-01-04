@@ -1,0 +1,8 @@
+BEGIN
+FOR i IN 1..100 LOOP
+IF MOD(i, 2) = 0 then
+	DBMS_output.put_line('N='||i);
+end IF;
+end LOOP;
+end;
+/
