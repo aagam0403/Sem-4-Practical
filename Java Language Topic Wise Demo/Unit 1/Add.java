@@ -1,5 +1,5 @@
 //Addition of two numbers
-//and take 2 numbers from the user
+//and Take 2 numbers from the user
 import java.util.Scanner;
 class Add
 {
