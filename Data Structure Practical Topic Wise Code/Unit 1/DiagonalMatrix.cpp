@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 // Function to check if a matrix is a diagonal matrix
 bool isDiagonalMatrix(int mat[4][4])
 {
