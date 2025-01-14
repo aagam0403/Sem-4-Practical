@@ -1,5 +1,4 @@
-public class assignment1 {
-
+public class assignment1 {
     // Function without parameters and without return value
     public static void noParamNoReturn() {
         int a = 10, b = 5;
