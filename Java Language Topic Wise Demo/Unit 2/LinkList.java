@@ -46,5 +46,6 @@ class LinkList
         //Clear Linked List
         l.clear();
         System.out.println(l);
+
     }
 }
