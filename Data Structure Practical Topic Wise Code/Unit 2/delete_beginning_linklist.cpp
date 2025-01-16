@@ -7,8 +7,8 @@ class node
         int data;
         node *next;
 };
-node *start=NULL;     //Head
-node *rear=NULL;      //Tail
+node *start=NULL;
+node *rear=NULL; 
 
 //Creating a list
 node *create_ll(node *start)
