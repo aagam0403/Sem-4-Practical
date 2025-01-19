@@ -64,19 +64,35 @@ void display(node *start)
     }
 }
 
-// delete at beginning 
+//delete at beginning
 node *delete_beg(node *start)
 {
-    node *ptr,*temp;
-    while(start==NULL)
+    node *ptr;
+    if(start== NULL)
     {
-        cout<<" underflow!";
+        cout<<"Underflow"; 
     }
-    ptr=start;
-    ptr=ptr->next;
-    free(ptr);
-    return start;
+    else
+    {
+    if(start->next==NULL)
+    {
+        ptr=start;
+        free(ptr);
+        cout<<"node is deleted\n";
+        start= NULL;
+    }
+    else
+    {
+        ptr = start;
+        start = start->next;
+        start->prev=NULL;
+        free(ptr);
+        cout<<"node is deleted\n";
+    }
 }
+return start;
+}
+
 
 int main() 
 {
