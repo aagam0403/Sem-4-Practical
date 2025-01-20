@@ -17,7 +17,7 @@ bool isUpperTriangularMatrix(int mat[4][4])
 int main()
 {
 	int mat[4][4]=
-	{
+   {
         {4, 6, 5, 3},
         {0, 7, 9, 6},
         {0, 0, 5, 1},
