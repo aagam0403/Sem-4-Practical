@@ -1,17 +1,11 @@
 DECLARE
-FACT NUMBER:=1;
-V VARCHAR2(100);
+    fact NUMBER := 1;
 BEGIN
-FOR I IN 1..10
-LOOP
-FOR J IN 1..I
-LOOP
-FACT:=FACT*J;
-V:=J||'*'||V;
-END LOOP;
-DBMS_OUTPUT.PUT_LINE(RTRIM(V,'*')||'='||FACT);
-FACT:=1;
-V:=NULL;
-END LOOP;
+    FOR n IN 1..10 LOOP
+        fact := 1;
+        FOR i IN 1..n LOOP
+            fact := fact * i;
+        END LOOP;
+        DBMS_OUTPUT.PUT_LINE('Factorial of ' || n || ' is ' || fact);
+    END LOOP;
 END;
-/
