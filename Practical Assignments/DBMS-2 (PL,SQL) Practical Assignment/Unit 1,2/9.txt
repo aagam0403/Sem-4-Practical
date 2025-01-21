@@ -1,9 +1,7 @@
 declare
 summ int:=12362345670; 
 BEGIN
-for i in 1..3 loop
   summ:=summ+1;
-end loop;
   DBMS_output.put_line('Total Digits in Number is '|| LENGTH(TO_CHAR(summ)));
 end;
 /
