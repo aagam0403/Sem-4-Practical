@@ -1,0 +1,19 @@
+DECLARE
+    CMR NUMBER := &CMR; 
+    LMR NUMBER := &LMR;
+    units_consumed NUMBER;
+    bill_amount NUMBER := 0;
+BEGIN
+    units_consumed := CMR - LMR;
+
+    IF units_consumed <= 100 THEN
+        bill_amount := units_consumed * 50;
+    ELSIF units_consumed <= 200 THEN
+        bill_amount := (100 * 50) + ((units_consumed - 100) * 0.25);
+    ELSE
+        bill_amount := (100 * 50) + (100 * 0.25) + ((units_consumed - 200) * 1.25);
+    END IF;
+
+    dbms_output.put_line('Units Consumed: ' || units_consumed);
+    dbms_output.put_line('Total Bill Amount: Rs. ' || bill_amount);
+END;

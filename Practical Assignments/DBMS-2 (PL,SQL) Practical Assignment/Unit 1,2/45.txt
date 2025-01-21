@@ -1,0 +1,11 @@
+DECLARE
+    stringg varchar2(1) := 'm';
+    vow integer:=0;
+BEGIN
+    dbms_output.put_line('Character is ' ||stringg);
+    if (stringg = 'a' OR stringg = 'e' OR stringg ='i' OR stringg = 'o' OR stringg = 'u') then
+       dbms_output.put_line('Vowel');
+       else
+        dbms_output.put_line('Consonent');
+    end if;
+END;

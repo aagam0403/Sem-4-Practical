@@ -1,0 +1,14 @@
+DECLARE
+    cp NUMBER := &cp;
+    sp NUMBER := &sp;
+    profit integer;
+    loss integer;
+BEGIN
+    profit := sp-cp;
+    loss := cp-sp;
+    if (profit > 0) then
+      dbms_output.put_line('Profit = ' || profit);
+    else
+      dbms_output.put_line('Loss = ' || loss);
+    end if;
+END;

@@ -1,0 +1,21 @@
+DECLARE
+    basic_salary NUMBER := &basic_salary;
+    ta NUMBER;
+    da NUMBER;
+    hra NUMBER;
+    lic NUMBER;
+    gs NUMBER;
+BEGIN
+    ta := 0.20 * basic_salary;  
+    da := 0.10 * basic_salary;  
+    hra := 0.30 * basic_salary;
+    lic := 0.05 * basic_salary;
+    gs := basic_salary + ta + da + hra + lic;
+
+    dbms_output.put_line('Basic Salary: ' || basic_salary);
+    dbms_output.put_line('TA (20% of Basic): ' || ta);
+    dbms_output.put_line('DA (10% of Basic): ' || da);
+    dbms_output.put_line('HRA (30% of Basic): ' || hra);
+    dbms_output.put_line('LIC (5% of Basic): ' || lic);
+    dbms_output.put_line('Gross Salary (GS): ' || gs);
+END;

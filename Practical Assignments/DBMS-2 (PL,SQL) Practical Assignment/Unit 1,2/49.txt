@@ -1,0 +1,9 @@
+DECLARE
+    num NUMBER := &num;
+BEGIN
+    dbms_output.put_line('Multiplication Table of ' || num);
+    FOR i IN 1..10 LOOP
+        dbms_output.put(num ||  '*'  || i || ' = ' || (num * i) || '  ');
+    END LOOP;
+    dbms_output.put_line('');
+END;

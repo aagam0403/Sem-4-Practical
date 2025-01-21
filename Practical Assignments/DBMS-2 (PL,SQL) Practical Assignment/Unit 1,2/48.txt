@@ -1,0 +1,22 @@
+DECLARE
+    sub1 integer := &sub1; 
+    sub2 integer := &sub2;
+    sub3 integer := &sub3;
+    total integer;
+    division varchar2(100);
+BEGIN
+    total := sub1+sub2+sub3;
+
+    IF total >=60  THEN
+        division := 'First';
+    ELSIF total<60 AND total>=50 THEN
+        division := 'Second';
+    ELSIF total<50 AND total>=35 THEN
+        division := 'Third';
+    ELSE
+        division := 'Fail';
+    END IF;
+
+    dbms_output.put_line('Total Marks : ' || total);
+    dbms_output.put_line('Division : ' || division);
+END;

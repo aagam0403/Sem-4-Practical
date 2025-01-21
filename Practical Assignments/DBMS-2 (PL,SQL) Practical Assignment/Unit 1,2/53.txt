@@ -1,0 +1,11 @@
+DECLARE
+    length NUMBER := &length;
+    breadth NUMBER := &breadth;
+    perimeter NUMBER;  
+BEGIN
+    perimeter := 2 * (length + breadth);
+
+    dbms_output.put_line('Length: ' || length);
+    dbms_output.put_line('Breadth: ' || breadth);
+    dbms_output.put_line('Perimeter of the rectangle: ' || perimeter);
+END;
