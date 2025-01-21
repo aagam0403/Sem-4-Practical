@@ -1,4 +1,7 @@
+DECLARE
+mes varchar2(200);
 BEGIN
-DBMS_output.put_line('Hello World');
+mes:=&msg;
+DBMS_output.put_line(mes);
 end;
 /
