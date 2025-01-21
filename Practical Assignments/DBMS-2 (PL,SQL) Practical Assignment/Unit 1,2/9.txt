@@ -1,14 +1,9 @@
-DECLARE
-N NUMBER(5):=&N;
-CNT NUMBER:=0;
-R NUMBER(2):=0;
+declare
+summ int:=12362345670; 
 BEGIN
-WHILE N !=0
-LOOP
-R:=MOD(N,10);
-CNT:=CNT+1;
-N:=TRUNC(N/10);
-END LOOP;
-DBMS_OUTPUT.PUT_LINE('NUMBER OF DIGITS OF GIVEN NUMBER IS '||CNT);
-END;
+for i in 1..3 loop
+  summ:=summ+1;
+end loop;
+  DBMS_output.put_line('Total Digits in Number is '|| LENGTH(TO_CHAR(summ)));
+end;
 /
