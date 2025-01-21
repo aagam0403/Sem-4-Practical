@@ -1,3 +1,4 @@
+//Multi Level Inheritance
 class Marks
 {
     static int total=0;
