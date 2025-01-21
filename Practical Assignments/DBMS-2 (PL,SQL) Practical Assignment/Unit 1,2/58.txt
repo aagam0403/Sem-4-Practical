@@ -1,0 +1,7 @@
+DECLARE
+    a varchar2(100):= &a;
+    leng number;
+BEGIN
+  leng := LENGTH(a);
+    dbms_output.put_line('Length of String is = '||leng);
+END;

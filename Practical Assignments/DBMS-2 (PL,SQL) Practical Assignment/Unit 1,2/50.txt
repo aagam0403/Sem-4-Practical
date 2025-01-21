@@ -1,0 +1,11 @@
+DECLARE
+    input_string  VARCHAR2(100);
+    reversed_string VARCHAR2(100);
+BEGIN
+    input_string := &input_string;
+    reversed_string := '';
+    FOR i IN REVERSE 1..LENGTH(input_string) LOOP
+        reversed_string := reversed_string || SUBSTR(input_string, i, 1);
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('Reversed String: ' || reversed_string);
+END;

@@ -1,0 +1,15 @@
+DECLARE
+    a NUMBER := &a; 
+    b NUMBER := &b; 
+    result NUMBER := 1;  
+    i NUMBER;
+BEGIN
+    IF b = 0 THEN
+        result := 1;
+    ELSE
+        FOR i IN 1..b LOOP
+            result := result * a;
+        END LOOP;
+    END IF;
+    dbms_output.put_line(a || ' raised to the power ' || b || ' is: ' || result);
+END;

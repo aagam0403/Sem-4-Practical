@@ -1,0 +1,14 @@
+DECLARE
+    a varchar2(100):= &a;
+    b varchar2(100):= &b;
+    leng1 number;
+    leng2 number;
+BEGIN
+  leng1 := LENGTH(a);
+  leng2 := LENGTH(b);
+  if (leng1>leng2) then
+    dbms_output.put_line('Largest Length of String is = '||a);
+  else
+    dbms_output.put_line('Largest Length of String is = '||b);
+  end if;
+END;
