@@ -1,0 +1,11 @@
+DECLARE
+    n NUMBER := &n;
+    fact NUMBER := 1;
+    sum_fact NUMBER := 0;
+BEGIN
+    FOR i IN 1..n LOOP
+        fact := fact * i;
+        sum_fact := sum_fact + fact;
+    END LOOP;
+    dbms_output.put_line('Sum of factorials from 1! to ' || n || '! is: ' || sum_fact);
+END;

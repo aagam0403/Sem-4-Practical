@@ -1,0 +1,10 @@
+DECLARE
+    a NUMBER := 0;
+    b NUMBER := 1;
+BEGIN
+    WHILE b <= 10 LOOP
+        DBMS_OUTPUT.PUT_LINE(b);
+          a := b;
+          b := a + b;
+    END LOOP;
+END;

@@ -1,0 +1,12 @@
+DECLARE
+    p INTEGER := &p;
+    t INTEGER := &t;
+    r INTEGER := &r;
+    ci INTEGER;
+BEGIN
+    ci := p * ((1 + r / 100), t)) - p;
+    dbms_output.put_line('Principal Amount = ' || p);
+    dbms_output.put_line('Time of Interval = ' || t);
+    dbms_output.put_line('Rate of Interest = ' || r);
+    dbms_output.put_line('Compound Interest = ' || ci);
+END;

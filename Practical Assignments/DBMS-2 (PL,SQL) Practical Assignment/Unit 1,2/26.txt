@@ -1,0 +1,14 @@
+DECLARE
+  a integer:=&a;
+  b integer:=&b;
+  c integer:=&c;
+BEGIN
+if(a=b AND b=c AND c=a) then
+	dbms_output.put_line('It is Equilateral Triangle');
+ELSIF A=B OR A=C OR C=B then
+  dbms_output.put_line('It is Iscosceles Triangle');
+ELSE
+  dbms_output.put_line('It is Scalen Triangle');
+end if;
+end;
+/

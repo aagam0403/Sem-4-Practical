@@ -1,0 +1,13 @@
+DECLARE
+    p integer:=&p;
+    t integer:=&t;
+    r integer:=&r;
+    si integer;
+BEGIN
+    si:=(p*t*r)/100;
+    dbms_output.put_line('Principal Amount = ' || p);
+    dbms_output.put_line('Time of interval= ' || t);
+    dbms_output.put_line('Rate of Interest = ' || r);
+    dbms_output.put_line('Simple Interest = ' || si);
+END;
+/

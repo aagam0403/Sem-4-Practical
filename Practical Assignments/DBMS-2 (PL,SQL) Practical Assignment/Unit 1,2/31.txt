@@ -1,0 +1,8 @@
+DECLARE
+    side NUMBER := &side;
+    area NUMBER;
+BEGIN
+    area := side * side;
+    dbms_output.put_line('area of the square: ' || area);
+END;
+/

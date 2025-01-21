@@ -1,0 +1,9 @@
+DECLARE
+  c integer;
+  f integer;
+BEGIN
+c := &c;
+f := c*1.8+32;
+	dbms_output.put_line('Farenheit = '||f);
+end;
+/

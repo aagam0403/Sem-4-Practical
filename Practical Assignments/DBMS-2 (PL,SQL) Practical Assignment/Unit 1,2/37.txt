@@ -1,0 +1,11 @@
+DECLARE
+    n NUMBER := &n;
+    sum NUMBER := 0;
+    fact NUMBER := 1;
+BEGIN
+    FOR i IN 1..n LOOP
+        fact := fact * i;  
+        sum := sum + (i / fact); 
+    END LOOP;
+    dbms_output.put_line('Sum of 1/1! + 2/2! + ... + n/n! is: ' || sum);
+END;

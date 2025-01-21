@@ -1,0 +1,10 @@
+DECLARE
+  pie float:=3.1416;
+  r integer;
+  area integer;
+BEGIN
+r := &r;
+area := pie*r*r;
+	dbms_output.put_line('Area of Circle = '||area);
+end;
+/

@@ -1,0 +1,10 @@
+DECLARE
+  pie float:=3.1416;
+  r integer;
+  peri integer;
+BEGIN
+r := &r;
+peri := 2*pie*r;
+	dbms_output.put_line('Perimeter of Circle = '||peri);
+end;
+/

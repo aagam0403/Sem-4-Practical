@@ -1,0 +1,16 @@
+DECLARE
+  a integer:=&a;
+  b integer:=&b;
+  c integer:=0;
+BEGIN
+  dbms_output.put_line('Before Swapping = ');
+  dbms_output.put_line('A = ' || a);
+  dbms_output.put_line('B = ' || b);
+  c:=a;
+  a:=b;
+  b:=c;
+  dbms_output.put_line('After Swapping = ');
+  dbms_output.put_line('A = ' || a);
+  dbms_output.put_line('B = ' || b);
+end;
+/

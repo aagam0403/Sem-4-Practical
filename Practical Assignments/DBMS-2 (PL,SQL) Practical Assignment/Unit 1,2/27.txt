@@ -1,0 +1,14 @@
+DECLARE
+  a integer:=&a;
+  b integer:=&b;
+  c integer:=&c;
+BEGIN
+if(a>b AND a>c) then
+	dbms_output.put_line('A is Greater');
+ELSIF b>c AND b>a then
+  dbms_output.put_line('B is Greater');
+ELSE
+  dbms_output.put_line('C is Greater');
+end if;
+end;
+/

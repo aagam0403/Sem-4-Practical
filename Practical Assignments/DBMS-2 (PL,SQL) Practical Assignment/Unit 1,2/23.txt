@@ -1,0 +1,11 @@
+DECLARE
+  h integer;
+  b integer;
+  area integer;
+BEGIN
+h := &h;
+b := &b;
+area := 1/2*b*h;
+	dbms_output.put_line('Area of Triangle = '||area);
+end;
+/

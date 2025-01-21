@@ -1,0 +1,10 @@
+DECLARE
+    fact NUMBER := 1;
+    n NUMBER := 5;
+BEGIN
+    FOR i IN 1..n LOOP
+        fact := fact * i;
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE(fact);
+END;
+/
