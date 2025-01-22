@@ -1,0 +1,11 @@
+DECLARE
+  a INT := 1;
+BEGIN
+  LOOP
+    DBMS_OUTPUT.PUT(a||' '); 
+    a := a + 1;
+    EXIT WHEN a > 25;
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE('');
+  END;
+/
