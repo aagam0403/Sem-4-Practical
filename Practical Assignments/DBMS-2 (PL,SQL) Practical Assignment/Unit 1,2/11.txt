@@ -1,15 +1,14 @@
 DECLARE
-N NUMBER(5):=&N;
-REV NUMBER(5):=0;
-R NUMBER(5):=0;
+    num      NUMBER := &num; 
+    reverse  NUMBER := 0;    
+    digit    NUMBER;         
 BEGIN
-WHILE N !=0
-LOOP
-R:=MOD(N,10);
-REV:=REV*10+R;
-N:=TRUNC(N/10);
-END LOOP;
-DBMS_OUTPUT.PUT_LINE('THE REVERSE OF A GIVEN NUMBER IS '||REV);
-END;
+    WHILE num != 0 LOOP
+        digit := MOD(num, 10);        
+        reverse := reverse * 10 + digit;
+        num := TRUNC(num / 10);       
+    END LOOP;
 
+    DBMS_OUTPUT.PUT_LINE('The reverse of the number is: ' || reverse);
+END;
 /

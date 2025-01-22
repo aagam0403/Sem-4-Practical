@@ -1,0 +1,18 @@
+DECLARE
+   distance_km NUMBER := &distance_km;
+   distance_mts NUMBER;
+   distance_cm NUMBER;
+   distance_ft NUMBER;
+BEGIN
+   -- Conversion formulas
+   distance_mts := distance_km * 1000; 
+   distance_cm := distance_mts * 100; 
+   distance_ft := distance_mts * 3.28084; 
+
+   -- Output the results
+   DBMS_OUTPUT.PUT_LINE('Distance in kilometers: ' || distance_km);
+   DBMS_OUTPUT.PUT_LINE('Distance in meters: ' || distance_mts);
+   DBMS_OUTPUT.PUT_LINE('Distance in centimeters: ' || distance_cm);
+   DBMS_OUTPUT.PUT_LINE('Distance in feet: ' || distance_ft);
+END;
+/

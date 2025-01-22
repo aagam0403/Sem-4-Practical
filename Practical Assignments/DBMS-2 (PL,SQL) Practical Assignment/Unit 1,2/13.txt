@@ -1,0 +1,23 @@
+DECLARE
+  t2 int;
+  t int;
+  rem int:=0;
+  cub int;
+BEGIN 
+  for i in 1..1000
+  loop
+    t:=i;
+    t2:=i;
+    cub:=0;
+    loop
+      rem:=mod(t,10);
+      cub:=cub+(rem*rem*rem);
+      t:=TRUNC(t/10);
+      exit when t<=0;
+    end loop;
+    if(t2=cub) then
+    dbms_output.put_line(t2);
+    end if;
+  end loop;
+  END;
+/

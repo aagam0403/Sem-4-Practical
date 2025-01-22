@@ -1,0 +1,19 @@
+DECLARE
+  a int:=&a;
+  t int;
+  c int:=0;
+BEGIN 
+  t:=a;
+  for i in 1..a
+  loop
+    if(mod(a,i)=0) then
+    c:=c+1;
+    end if;
+  end loop;
+  if(c=2) then
+  dbms_output.put_line('Prime');
+  else
+  dbms_output.put_line('Not Prime');
+  end if;
+  END;
+/

@@ -1,0 +1,21 @@
+DECLARE
+    num   NUMBER; 
+    is_prime BOOLEAN; 
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Prime numbers between 1 and 100 are:');
+    FOR num IN 2..100 LOOP
+        is_prime := TRUE; 
+
+        FOR i IN 2..TRUNC(SQRT(num)) LOOP
+            IF MOD(num, i) = 0 THEN
+                is_prime := FALSE; 
+                EXIT; 
+            END IF;
+        END LOOP;
+
+        IF is_prime THEN
+            DBMS_OUTPUT.PUT_LINE(num);
+        END IF;
+    END LOOP;
+END;
+/

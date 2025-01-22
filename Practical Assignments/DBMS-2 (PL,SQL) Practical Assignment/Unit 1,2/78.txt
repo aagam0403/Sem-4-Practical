@@ -1,0 +1,20 @@
+DECLARE
+   emp_name VARCHAR2(100) := &emp_name;
+   emp_sal NUMBER := &emp_sal;
+   bonus NUMBER;
+BEGIN
+   IF emp_sal < 500 THEN
+      bonus := emp_sal * 0.10;
+   ELSIF emp_sal > 3500 THEN
+      bonus := emp_sal * 0.12;
+   ELSIF emp_sal > 1000 THEN
+      bonus := emp_sal * 0.135;
+   ELSE
+      bonus := 0;
+   END IF;
+
+   DBMS_OUTPUT.PUT_LINE('Employee Name: ' || emp_name);
+   DBMS_OUTPUT.PUT_LINE('Employee Salary: Rs ' || emp_sal);
+   DBMS_OUTPUT.PUT_LINE('Calculated Bonus: Rs ' || bonus);
+END;
+/

@@ -1,0 +1,21 @@
+DECLARE
+   s1        VARCHAR2(100) := &s1; 
+   vow       NUMBER := 0;
+   cons      NUMBER := 0;
+   i         NUMBER := 1;
+   char_curr CHAR(1);
+BEGIN
+   WHILE i <= LENGTH(s1) LOOP
+      char_curr := LOWER(SUBSTR(s1, i, 1));
+      IF char_curr IN ('a', 'e', 'i', 'o', 'u') THEN
+         vow := vow + 1;
+      ELSIF char_curr BETWEEN 'a' AND 'z' THEN
+         cons := cons + 1;
+      END IF;
+      i := i + 1;
+   END LOOP;
+
+   DBMS_OUTPUT.PUT_LINE('Total Vowels in String = ' || vow);
+   DBMS_OUTPUT.PUT_LINE('Total Consonants in String = ' || cons);
+END;
+/

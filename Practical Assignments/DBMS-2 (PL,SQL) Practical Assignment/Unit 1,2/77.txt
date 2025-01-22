@@ -1,0 +1,17 @@
+DECLARE
+   num NUMBER := &num;
+   digit NUMBER;
+   position NUMBER := 1;
+   sum_even_places NUMBER := 0;
+BEGIN
+   WHILE num > 0 LOOP
+      digit := MOD(num, 10);
+      IF MOD(position, 2) = 0 THEN
+         sum_even_places := sum_even_places + digit;
+      END IF;
+      num := num / 10;
+      position := position + 1;
+   END LOOP;
+   DBMS_OUTPUT.PUT_LINE('The sum of numbers in even places is: ' || sum_even_places);
+END;
+/

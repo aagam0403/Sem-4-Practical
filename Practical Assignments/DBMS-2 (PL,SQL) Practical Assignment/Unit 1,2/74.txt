@@ -1,0 +1,18 @@
+DECLARE
+   annual_income NUMBER := &annual_income;
+   income_tax NUMBER := 0;
+BEGIN
+   IF annual_income > 140000 THEN
+      income_tax := 2500 + (annual_income * 0.25);
+   ELSIF annual_income > 100000 THEN
+      income_tax := 800 + (annual_income * 0.16);
+   ELSIF annual_income > 60000 THEN
+      income_tax := annual_income * 0.10;
+   ELSE
+      income_tax := 0;
+   END IF;
+
+   DBMS_OUTPUT.PUT_LINE('Annual Income: Rs ' || annual_income);
+   DBMS_OUTPUT.PUT_LINE('Income Tax: Rs ' || income_tax);
+END;
+/

@@ -1,0 +1,20 @@
+DECLARE
+    num         NUMBER := &num;  
+    first_digit NUMBER;          
+    last_digit  NUMBER;      
+    sum_digits  NUMBER;      
+BEGIN
+    last_digit := MOD(num, 10);
+    
+    WHILE num >= 10 LOOP
+        num := TRUNC(num / 10);
+    END LOOP;
+    first_digit := num;
+    
+    sum_digits := first_digit + last_digit;
+
+    DBMS_OUTPUT.PUT_LINE('First digit: ' || first_digit);
+    DBMS_OUTPUT.PUT_LINE('Last digit: ' || last_digit);
+    DBMS_OUTPUT.PUT_LINE('Sum of first and last digits: ' || sum_digits);
+END;
+/

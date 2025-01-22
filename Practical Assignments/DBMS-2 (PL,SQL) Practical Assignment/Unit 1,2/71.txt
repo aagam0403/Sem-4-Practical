@@ -1,0 +1,13 @@
+DECLARE
+popu number:=&popu;
+inc number;
+incpopu number;
+BEGIN
+  FOR I IN 1..4 LOOP
+    inc:=popu*0.02;
+  END LOOP;
+  incpopu:=popu+inc;
+  DBMS_OUTPUT.PUT_LINE('Population is '||popu);
+  DBMS_OUTPUT.PUT_LINE('After 4 years Population is '||incpopu);
+END;
+/

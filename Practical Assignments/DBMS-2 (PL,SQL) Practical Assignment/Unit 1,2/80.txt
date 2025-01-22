@@ -1,0 +1,23 @@
+DECLARE
+   item_no NUMBER := &item_no;
+   item_name VARCHAR2(100) := &item_name;
+   qty NUMBER := &qty;
+   unit_price NUMBER := &unit_price;
+   bill NUMBER;
+   discount NUMBER := 0;
+   final_bill NUMBER;
+BEGIN
+   bill := qty * unit_price;
+   IF bill > 500 THEN
+      discount := bill * 0.02;
+   END IF;
+   final_bill := bill - discount;
+   DBMS_OUTPUT.PUT_LINE('Item No: ' || item_no);
+   DBMS_OUTPUT.PUT_LINE('Item Name: ' || item_name);
+   DBMS_OUTPUT.PUT_LINE('Quantity: ' || qty);
+   DBMS_OUTPUT.PUT_LINE('Unit Price: Rs ' || unit_price);
+   DBMS_OUTPUT.PUT_LINE('Bill Amount: Rs ' || bill);
+   DBMS_OUTPUT.PUT_LINE('Discount: Rs ' || discount);
+   DBMS_OUTPUT.PUT_LINE('Final Bill Amount: Rs ' || final_bill);
+END;
+/

@@ -1,0 +1,7 @@
+DECLARE
+    s1 varchar2(100):=&s1;
+    leng number :=LENGTH(s1);
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Total Length of the String is : ' || leng);
+END;
+/

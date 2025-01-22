@@ -1,0 +1,10 @@
+DECLARE
+   hh NUMBER := &hh; 
+   minu NUMBER := &minu; 
+   total_seconds NUMBER;
+BEGIN
+   total_seconds := (hh * 3600) + (minu * 60);
+
+   DBMS_OUTPUT.PUT_LINE('Total seconds for ' || hh || ' hours and ' || minu || ' minutes: ' || total_seconds);
+END;
+/

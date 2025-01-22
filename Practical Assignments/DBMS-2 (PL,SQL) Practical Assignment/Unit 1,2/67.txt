@@ -1,0 +1,11 @@
+DECLARE
+   n NUMBER := &n;
+   sum_of_series NUMBER := 0;
+BEGIN
+   FOR i IN 1..n LOOP
+      sum_of_series := sum_of_series + POWER(i, 2);
+   END LOOP;
+
+   DBMS_OUTPUT.PUT_LINE('The sum of the series 1^2 + 2^2 + 3^2 + ... + ' || n || '^2 is: ' || sum_of_series);
+END;
+/

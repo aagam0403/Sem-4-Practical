@@ -1,14 +1,15 @@
 DECLARE
-N NUMBER(5):=&N;
-S NUMBER:=0;
-R NUMBER(2):=0;
+    num      NUMBER;    
+    digit    NUMBER;      
+    sum      NUMBER := 0; 
 BEGIN
-WHILE N !=0
-LOOP
-R:=MOD(N,10);
-S:=S+R;
-N:=TRUNC(N/10);
-END LOOP;
-DBMS_OUTPUT.PUT_LINE('SUM OF DIGITS OF GIVEN NUMBER IS '||S);
+    num := &Enter_Number;
+    WHILE num != 0 LOOP
+        digit := MOD(num, 10); 
+        sum := sum + digit;   
+        num := TRUNC(num / 10);
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('The sum of the digits is: ' || sum);
 END;
 /

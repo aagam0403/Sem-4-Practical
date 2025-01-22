@@ -1,0 +1,29 @@
+DECLARE
+  a   INT := &a; 
+  t   INT;       
+  s   INT := 0;  
+  rem INT;      
+BEGIN
+  t := a; 
+
+  LOOP
+    s := 0; 
+
+    WHILE t > 0 LOOP
+      rem := MOD(t, 10); 
+      s := s + rem;      
+      t := TRUNC(t / 10); 
+
+    END LOOP;
+
+    IF s < 10 THEN
+      EXIT; 
+    ELSE
+      t := s; 
+    END IF;
+
+  END LOOP;
+
+  DBMS_OUTPUT.PUT_LINE('Digital Root: ' || s);
+END;
+/

@@ -1,0 +1,20 @@
+DECLARE
+   qty NUMBER := &qty; 
+   price_per_item NUMBER := &price_per_item;
+   discount NUMBER := 0;
+   total_cost NUMBER;
+   discounted_cost NUMBER;
+BEGIN
+   total_cost := qty * price_per_item;
+
+   IF (qty>1000) THEN
+      discount := 0.2;
+   END IF;
+
+   discounted_cost := total_cost - (total_cost * discount);
+
+   DBMS_OUTPUT.PUT_LINE('Total Cost before Discount: ' || total_cost);
+   DBMS_OUTPUT.PUT_LINE('Discount Applied: ' || (discount * 100) || '%');
+   DBMS_OUTPUT.PUT_LINE('Total Expenditure after Discount: ' || discounted_cost);
+END;
+/

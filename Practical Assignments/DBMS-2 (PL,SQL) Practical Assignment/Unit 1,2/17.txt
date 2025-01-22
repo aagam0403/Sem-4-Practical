@@ -1,0 +1,14 @@
+DECLARE
+  a number:=&a;
+  t number;
+  bin varchar2(10):='';
+  BEGIN 
+  loop
+  t:=mod(a,2);
+  bin:=t || bin;
+  a:=TRUNC(a/2);
+  exit when a<=0;
+  end loop;
+  dbms_output.put_line(bin);
+  END;
+/

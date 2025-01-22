@@ -1,0 +1,22 @@
+DECLARE
+   num NUMBER;
+   sum NUMBER := 0;
+   temp NUMBER;
+   digit NUMBER;
+   n NUMBER;
+BEGIN
+   num := &num;
+   temp := num;
+   n := LENGTH(num);
+   WHILE temp > 0 LOOP
+      digit := temp MOD 10;
+      sum := sum + POWER(digit, n);
+      temp := temp / 10;
+   END LOOP;
+   IF sum = num THEN
+      DBMS_OUTPUT.PUT_LINE('Armstrong number');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE('Not an Armstrong number');
+   END IF;
+END;
+/
