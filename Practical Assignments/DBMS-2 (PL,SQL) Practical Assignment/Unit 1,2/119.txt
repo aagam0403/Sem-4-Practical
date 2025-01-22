@@ -1,0 +1,13 @@
+DECLARE
+   start_num NUMBER := &start_num;
+   end_num NUMBER := &end_num;
+   i NUMBER;
+BEGIN
+   FOR i IN start_num..end_num LOOP
+      IF MOD(i, 2) = 0 THEN
+         DBMS_OUTPUT.PUT(i || ' ');
+      END IF;
+   END LOOP;
+   DBMS_OUTPUT.PUT_LINE('');
+END;
+/

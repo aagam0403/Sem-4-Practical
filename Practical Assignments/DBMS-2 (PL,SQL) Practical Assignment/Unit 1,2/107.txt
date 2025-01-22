@@ -1,0 +1,13 @@
+DECLARE
+   str1 VARCHAR2(100);
+   str2 VARCHAR2(100);
+   concatenated_string VARCHAR2(200);
+BEGIN
+   str1 := '&str1';
+   str2 := '&str2';
+
+   concatenated_string := str1 || str2;
+
+   DBMS_OUTPUT.PUT_LINE('Concatenated String: ' || concatenated_string);
+END;
+/

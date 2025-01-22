@@ -1,0 +1,9 @@
+DECLARE
+   i NUMBER;
+   str VARCHAR2(6) := 'ORACLE';
+BEGIN
+   FOR i IN REVERSE 1..6 LOOP
+      DBMS_OUTPUT.PUT_LINE(SUBSTR(str, 1, i));
+   END LOOP;
+END;
+/

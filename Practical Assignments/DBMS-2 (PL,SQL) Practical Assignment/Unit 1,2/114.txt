@@ -1,0 +1,18 @@
+DECLARE
+   n NUMBER := &n;
+   i NUMBER;
+   fact NUMBER;
+   sum_odd_fact NUMBER := 0;
+BEGIN
+   FOR i IN 1..n LOOP
+      IF MOD(i, 2) <> 0 THEN
+         fact := 1;
+         FOR j IN 1..i LOOP
+            fact := fact * j;
+         END LOOP;
+         sum_odd_fact := sum_odd_fact + fact;
+      END IF;
+   END LOOP;
+   DBMS_OUTPUT.PUT_LINE('Sum of odd factorials: ' || sum_odd_fact);
+END;
+/

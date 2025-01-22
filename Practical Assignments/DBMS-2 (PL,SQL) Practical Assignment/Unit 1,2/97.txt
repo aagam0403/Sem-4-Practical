@@ -1,0 +1,16 @@
+DECLARE
+   i NUMBER;
+   j NUMBER;
+BEGIN
+   FOR i IN 1..5 LOOP
+      FOR j IN 1..i LOOP
+         IF MOD(i + j, 2) = 0 THEN
+            DBMS_OUTPUT.PUT('1 ');
+         ELSE
+            DBMS_OUTPUT.PUT('0 ');
+         END IF;
+      END LOOP;
+      DBMS_OUTPUT.PUT_LINE('');
+   END LOOP;
+END;
+/

@@ -1,0 +1,9 @@
+DECLARE
+   real_value NUMBER;
+   integer_value NUMBER;
+BEGIN
+   real_value := &real_value;
+   integer_value := TRUNC(real_value);
+   DBMS_OUTPUT.PUT_LINE('Integer Value: ' || integer_value);
+END;
+/

@@ -1,0 +1,13 @@
+DECLARE
+   num1 NUMBER;
+   num2 NUMBER;
+   remainder NUMBER;
+BEGIN
+   num1 := &num1;
+   num2 := &num2;
+
+   remainder := num1 - (num2 * TRUNC(num1 / num2));
+
+   DBMS_OUTPUT.PUT_LINE('Remainder: ' || remainder);
+END;
+/

@@ -1,0 +1,19 @@
+DECLARE
+   empno NUMBER := 1001;
+   ename VARCHAR2(100) := 'John Doe'; 
+   sal NUMBER := 50000; 
+   hiredate DATE := TO_DATE('2015-06-15', 'YYYY-MM-DD'); 
+   dname VARCHAR2(100) := 'HR Department';
+   grade NUMBER := 3;  
+   loc VARCHAR2(100) := 'New York';  
+   exp NUMBER := 10;  
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('Employee No: ' || empno);
+   DBMS_OUTPUT.PUT_LINE('Name: ' || ename);
+   DBMS_OUTPUT.PUT_LINE('Salary: Rs ' || sal);
+   DBMS_OUTPUT.PUT_LINE('Experience: ' || exp || ' years');
+   DBMS_OUTPUT.PUT_LINE('Department Name: ' || dname);
+   DBMS_OUTPUT.PUT_LINE('Grade: ' || grade);
+   DBMS_OUTPUT.PUT_LINE('Location: ' || loc);
+END;
+/

@@ -1,0 +1,16 @@
+DECLARE
+   num1 NUMBER;
+   num2 NUMBER;
+   sum NUMBER;
+   product NUMBER;
+BEGIN
+   num1 := &num1;
+   num2 := &num2;
+
+   sum := num1 + num2;
+   product := num1 * num2;
+
+   DBMS_OUTPUT.PUT_LINE('Sum: ' || sum);
+   DBMS_OUTPUT.PUT_LINE('Product: ' || product);
+END;
+/

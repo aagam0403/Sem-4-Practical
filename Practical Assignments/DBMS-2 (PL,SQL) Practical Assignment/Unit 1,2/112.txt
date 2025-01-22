@@ -1,0 +1,14 @@
+DECLARE
+   num NUMBER := 1;
+   i NUMBER;
+   j NUMBER;
+BEGIN
+   FOR i IN 1..7 LOOP
+      FOR j IN 1..i LOOP
+         DBMS_OUTPUT.PUT(num || ' ');
+         num := num + 1;
+      END LOOP;
+      DBMS_OUTPUT.PUT_LINE(''); 
+   END LOOP;
+END;
+/
