@@ -1,4 +1,5 @@
 //Creating a linked list, display and Delete at Beginning
+
 #include <iostream>
 using namespace std;
 class node
