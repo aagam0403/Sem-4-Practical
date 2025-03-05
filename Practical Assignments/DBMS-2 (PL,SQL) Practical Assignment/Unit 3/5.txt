@@ -1,0 +1,60 @@
+-- 5(A) Create the Product table
+CREATE TABLE Product (
+    Prod_id      VARCHAR2(10) PRIMARY KEY,
+    Prod_name    VARCHAR2(50),
+    Prod_amt     NUMBER(10,2),
+    Prod_comp    VARCHAR2(50),
+    Prod_mfgdate DATE,
+    Prod_expdate DATE
+);
+
+-- Insert 5 records
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES ('P100', 'Soap', 50.00, 'Company A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), TO_DATE('2025-01-01', 'YYYY-MM-DD'));
+
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES ('P101', 'Shampoo', 150.00, 'Company B', TO_DATE('2023-12-01', 'YYYY-MM-DD'), TO_DATE('2025-12-01', 'YYYY-MM-DD'));
+
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES ('P102', 'Toothpaste', 80.00, 'Company C', TO_DATE('2023-11-15', 'YYYY-MM-DD'), TO_DATE('2025-11-15', 'YYYY-MM-DD'));
+
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES ('P103', 'Soap', 55.00, 'Company D', TO_DATE('2024-02-01', 'YYYY-MM-DD'), TO_DATE('2025-02-01', 'YYYY-MM-DD'));
+
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES ('P104', 'Lotion', 200.00, 'Company E', TO_DATE('2023-10-10', 'YYYY-MM-DD'), TO_DATE('2025-10-10', 'YYYY-MM-DD'));
+
+COMMIT;
+
+-- 5(B) Create the Product_new table for backup
+CREATE TABLE Product_new (
+    Prod_id      VARCHAR2(10),
+    Prod_name    VARCHAR2(50),
+    Prod_amt     NUMBER(10,2),
+    Prod_comp    VARCHAR2(50),
+    Prod_mfgdate DATE,
+    Prod_expdate DATE,
+    Updated_at   TIMESTAMP DEFAULT SYSTIMESTAMP
+);
+
+-- Create an AFTER UPDATE trigger to back up updated records if Prod_id = 'P100' and Prod_comp is changed
+CREATE OR REPLACE TRIGGER after_product_update
+AFTER UPDATE ON Product
+FOR EACH ROW
+BEGIN
+    -- Check if the updated record has Prod_id = 'P100' and Prod_comp is changed
+    IF :OLD.Prod_id = 'P100' AND :OLD.Prod_comp <> :NEW.Prod_comp THEN
+        -- Backup the new updated record
+        INSERT INTO Product_new (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate, Updated_at)
+        VALUES (:NEW.Prod_id, :NEW.Prod_name, :NEW.Prod_amt, :NEW.Prod_comp, :NEW.Prod_mfgdate, :NEW.Prod_expdate, SYSTIMESTAMP);
+    END IF;
+END;
+/
+
+-- Test update to trigger the backup
+UPDATE Product 
+SET Prod_comp = 'Company X' 
+WHERE Prod_id = 'P100';
+
+-- Check backed-up records
+SELECT * FROM Product_new;

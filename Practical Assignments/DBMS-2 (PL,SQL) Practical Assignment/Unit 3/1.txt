@@ -1,0 +1,57 @@
+-- 1(A) Create the Product12 table
+CREATE TABLE Product12 (
+    Prod_id      NUMBER PRIMARY KEY,
+    Prod_name    VARCHAR2(50),
+    Prod_amt     NUMBER(10,2),
+    Prod_comp    VARCHAR2(50),
+    Prod_mfgdate DATE,
+    Prod_expdate DATE
+);
+
+-- Insert 5 records
+INSERT INTO Product12 (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (1, 'Soap', 50.00, 'Company A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), TO_DATE('2025-01-01', 'YYYY-MM-DD'));
+
+INSERT INTO Product12 (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (2, 'Shampoo', 150.00, 'Company B', TO_DATE('2023-12-01', 'YYYY-MM-DD'), TO_DATE('2025-12-01', 'YYYY-MM-DD'));
+
+INSERT INTO Product12 (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (3, 'Toothpaste', 80.00, 'Company C', TO_DATE('2023-11-15', 'YYYY-MM-DD'), TO_DATE('2025-11-15', 'YYYY-MM-DD'));
+
+INSERT INTO Product12 (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (4, 'Soap', 55.00, 'Company D', TO_DATE('2024-02-01', 'YYYY-MM-DD'), TO_DATE('2025-02-01', 'YYYY-MM-DD'));
+
+INSERT INTO Product12 (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (5, 'Lotion', 200.00, 'Company E', TO_DATE('2023-10-10', 'YYYY-MM-DD'), TO_DATE('2025-10-10', 'YYYY-MM-DD'));
+
+COMMIT;
+
+-- 1(B) Create the Product_new table for backup
+CREATE TABLE Product_new (
+    Prod_id      NUMBER,
+    Prod_name    VARCHAR2(50),
+    Prod_amt     NUMBER(10,2),
+    Prod_comp    VARCHAR2(50),
+    Prod_mfgdate DATE,
+    Prod_expdate DATE,
+    Deleted_at   TIMESTAMP DEFAULT SYSTIMESTAMP
+);
+
+-- Create a trigger to backup deleted records where Prod_name='Soap'
+CREATE OR REPLACE TRIGGER after_product12_delete
+AFTER DELETE ON Product12
+FOR EACH ROW
+BEGIN
+    -- Only backup records where Prod_name is 'Soap'
+    IF :OLD.Prod_name = 'Soap' THEN
+        INSERT INTO Product_new (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate, Deleted_at)
+        VALUES (:OLD.Prod_id, :OLD.Prod_name, :OLD.Prod_amt, :OLD.Prod_comp, :OLD.Prod_mfgdate, :OLD.Prod_expdate, SYSTIMESTAMP);
+    END IF;
+END;
+/
+
+-- Test deletion
+DELETE FROM Product12 WHERE Prod_name = 'Soap';
+
+-- Check backed-up records
+SELECT * FROM Product_new;

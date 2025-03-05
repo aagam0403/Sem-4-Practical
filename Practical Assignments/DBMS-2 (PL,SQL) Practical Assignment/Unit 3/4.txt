@@ -1,0 +1,56 @@
+-- 4(A) Create the Product table
+CREATE TABLE Product (
+    Prod_id      NUMBER PRIMARY KEY,
+    Prod_name    VARCHAR2(50),
+    Prod_amt     NUMBER(10,2),
+    Prod_comp    VARCHAR2(50),
+    Prod_mfgdate DATE,
+    Prod_expdate DATE
+);
+
+-- Insert 5 records
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (201, 'Soap', 50.00, 'Company A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), TO_DATE('2025-01-01', 'YYYY-MM-DD'));
+
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (202, 'Shampoo', 150.00, 'Company B', TO_DATE('2023-12-01', 'YYYY-MM-DD'), TO_DATE('2025-12-01', 'YYYY-MM-DD'));
+
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (203, 'Toothpaste', 80.00, 'Company C', TO_DATE('2023-11-15', 'YYYY-MM-DD'), TO_DATE('2025-11-15', 'YYYY-MM-DD'));
+
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (204, 'Soap', 55.00, 'Company D', TO_DATE('2024-02-01', 'YYYY-MM-DD'), TO_DATE('2025-02-01', 'YYYY-MM-DD'));
+
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (205, 'Lotion', 200.00, 'Company E', TO_DATE('2023-10-10', 'YYYY-MM-DD'), TO_DATE('2025-10-10', 'YYYY-MM-DD'));
+
+COMMIT;
+
+-- 4(B) Create the Product_new table for backup
+CREATE TABLE Product_new (
+    Prod_id      NUMBER,
+    Prod_name    VARCHAR2(50),
+    Prod_amt     NUMBER(10,2),
+    Prod_comp    VARCHAR2(50),
+    Prod_mfgdate DATE,
+    Prod_expdate DATE,
+    Inserted_at  TIMESTAMP DEFAULT SYSTIMESTAMP
+);
+
+-- Create an AFTER INSERT trigger to back up new inserted records
+CREATE OR REPLACE TRIGGER after_product_insert
+AFTER INSERT ON Product
+FOR EACH ROW
+BEGIN
+    -- Backup the newly inserted record
+    INSERT INTO Product_new (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate, Inserted_at)
+    VALUES (:NEW.Prod_id, :NEW.Prod_name, :NEW.Prod_amt, :NEW.Prod_comp, :NEW.Prod_mfgdate, :NEW.Prod_expdate, SYSTIMESTAMP);
+END;
+/
+
+-- Test insertion to trigger the backup
+INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
+VALUES (206, 'Cream', 120.00, 'Company F', TO_DATE('2024-03-05', 'YYYY-MM-DD'), TO_DATE('2026-03-05', 'YYYY-MM-DD'));
+
+-- Check backed-up records
+SELECT * FROM Product_new;
