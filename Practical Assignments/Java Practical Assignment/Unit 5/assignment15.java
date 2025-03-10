@@ -1,26 +1,36 @@
-import java.applet.Applet;
-import java.awt.*;
-
-public class assignment15 extends Applet {
-    public void paint(Graphics g) {
-        g.setColor(Color.YELLOW);
-        g.fillOval(100, 100, 150, 150);
-        
-        g.setColor(Color.BLACK);
-        g.fillOval(130, 140, 20, 20);
-        g.fillOval(180, 140, 20, 20);
-        
-        g.drawLine(170, 170, 170, 190);
-        g.drawLine(150, 200, 190, 200);
+import java.util.Scanner;
+class CustomException extends Exception 
+{
+    public CustomException(String message) 
+    {
+        super(message);
     }
 }
+public class assignment15 
+{
+    public static void validateAge(int age) throws CustomException {
+        if (age < 18)
+        {
+            throw new CustomException("Age must be 18 or above.");
+        }
+        else
+        {
+            System.out.println("Access granted.");
+        }
+    }
 
-/* HTML file to run the applet
-
-<html>
-  <body>
-    <applet code="assignment15.class" width="400" height="400"></applet>
-  </body>
-</html>
-
-*/
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+        try
+        {
+            System.out.print("Enter your age: ");
+            int age = scanner.nextInt();
+            validateAge(age);
+        }
+        catch (CustomException e) 
+        {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}

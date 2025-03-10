@@ -1,25 +1,37 @@
-import java.applet.Applet;
-import java.awt.*;
+import java.util.Scanner;
+public class  
+{
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+        try 
+        {
+            System.out.print("Enter a number: ");
+            int num = Integer.parseInt(scanner.nextLine());
 
-public class assignment14 extends Applet {
-    public void paint(Graphics g) {
-        g.setColor(Color.YELLOW);
-        g.fillOval(100, 100, 200, 200);
-        
-        g.setColor(Color.GREEN);
-        g.fillOval(150, 150, 20, 30);
-        g.fillOval(230, 150, 20, 30);
-        
-        g.setColor(Color.BLACK);
-        g.fillOval(190, 180, 20, 20);
-        
-        g.setColor(Color.RED);
-        g.drawArc(150, 220, 100, 50, 0, 180);
+            int result = 100 / num;
+            System.out.println("Result: " + result);
+
+            int[] arr = {10, 20, 30};
+            System.out.print("Enter an array index: ");
+            int index = scanner.nextInt();
+            System.out.println("Array element: " + arr[index]);
+        } 
+        catch (ArithmeticException e) 
+        {
+            System.out.println("Error: Division by zero is not allowed.");
+        } 
+        catch (ArrayIndexOutOfBoundsException e) 
+        {
+            System.out.println("Error: Invalid array index.");
+        } 
+        catch (NumberFormatException e) 
+        {
+            System.out.println("Error: Invalid number format. Please enter a valid integer.");
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
+        }
     }
 }
-
-<html>
-  <body>
-    <applet code="assignment14.class" width="400" height="400"></applet>
-  </body>
-</html>

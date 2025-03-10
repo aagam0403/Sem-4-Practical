@@ -1,50 +1,40 @@
-/* HTML File to run this applet:
+class InsufficientFundsException extends Exception {
+    public InsufficientFundsException(String message) {
+        super(message);
+    }
+}
 
-   <html>
-   <body>
-   <applet code="assignment13.class" width="400" height="400"></applet>
-   </body>
-   </html>
-*/
+class BankAccount {
+    private double balance;
 
-import java.applet.Applet;
-import java.awt.*;
+    public BankAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
 
-public class assignment13 extends Applet {
-    public void paint(Graphics g) {
-        // Draw house body
-        g.setColor(Color.RED);
-        g.fillRect(100, 150, 150, 150);
-        g.setColor(Color.BLACK);
-        g.drawRect(100, 150, 150, 150);
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: Rs " + amount + ", Balance: Rs " + balance);
+    }
+
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount > balance) {
+            throw new InsufficientFundsException("Not Sufficient Fund");
+        }
+        balance -= amount;
+        System.out.println("Withdrawn: Rs " + amount + ", Balance: Rs " + balance);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(1000.00);
         
-        // Draw roof
-        int[] xPoints = {90, 175, 260};
-        int[] yPoints = {150, 80, 150};
-        g.setColor(Color.BLACK);
-        g.fillPolygon(xPoints, yPoints, 3);
-        g.drawPolygon(xPoints, yPoints, 3);
-        
-        // Draw door
-        g.setColor(Color.DARK_GRAY);
-        g.fillRect(180, 220, 40, 80);
-        g.setColor(Color.BLACK);
-        g.drawRect(180, 220, 40, 80);
-        
-        // Draw window
-        g.setColor(Color.WHITE);
-        g.fillRect(120, 180, 40, 40);
-        g.setColor(Color.BLACK);
-        g.drawRect(120, 180, 40, 40);
-        
-        // Window grid
-        g.drawLine(140, 180, 140, 220);
-        g.drawLine(120, 200, 160, 200);
-        
-        // Chimney
-        g.setColor(new Color(139, 69, 19)); // Brown color
-        g.fillRect(200, 90, 20, 40);
-        g.setColor(Color.BLACK);
-        g.drawRect(200, 90, 20, 40);
+        try {
+            account.withdraw(400.00);
+            account.withdraw(300.00);
+            account.withdraw(500.00);
+        } catch (InsufficientFundsException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
     }
 }
