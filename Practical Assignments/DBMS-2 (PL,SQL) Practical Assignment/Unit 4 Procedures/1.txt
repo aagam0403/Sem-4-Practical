@@ -1,0 +1,15 @@
+CREATE OR REPLACE PROCEDURE findmax (a IN NUMBER, b IN NUMBER, c IN NUMBER)
+AS
+    max_num NUMBER;
+BEGIN
+    IF (a >= b) AND (a >= c) THEN
+        max_num := a;
+    ELSIF (b >= a) AND (b >= c) THEN
+        max_num := b;
+    ELSE
+        max_num := c;
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE('The maximum number is: ' || max_num);
+END findmax;
+/
