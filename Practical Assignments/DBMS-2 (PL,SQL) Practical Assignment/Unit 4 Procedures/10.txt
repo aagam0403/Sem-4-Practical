@@ -1,0 +1,16 @@
+--10. Create a procedure to find a employee whose id is 1002.
+create or replace procedure sel
+IS      
+c_id excp.id%type;
+c_name excp.name%type;
+c_addr excp.addr%type;
+begin
+select id,name,addr into c_id,c_name,c_addr from excp where id=1002;
+dbms_output.put_line('ID : ' || c_id || ' Name : ' || c_name || ' Address : ' || c_addr);
+end;
+/
+
+begin
+sel;
+end;
+/

@@ -1,0 +1,19 @@
+--8. Create a procedure to insert a new row in Customer table.
+CREATE TABLE cust1(name varchar2(100), ID number);
+begin
+	INSERT INTO cust1(name, ID) VALUES ('Aagam', 1011);
+    	INSERT INTO cust1(name, ID) VALUES ('Saiyam', 1012);
+end;
+/
+
+CREATE OR REPLACE PROCEDURE addrow
+AS
+BEGIN
+	INSERT INTO cust1(name, ID) VALUES ('XYZ', 1001);
+END;
+/
+
+BEGIN
+	addrow;
+END;
+/

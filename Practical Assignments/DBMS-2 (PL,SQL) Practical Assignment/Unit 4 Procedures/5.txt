@@ -1,0 +1,12 @@
+--5. Create a procedure to update the salary of an employee whose name is ‘Dinesh’
+create or replace procedure up
+IS 
+begin
+update ms set sal=sal+1000 where name='Dinesh';
+end;
+/
+
+begin
+up;
+end;
+/

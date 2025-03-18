@@ -1,0 +1,20 @@
+--6. Create a procedure to delete a record of a product where product price is 200.
+CREATE TABLE produ(pname varchar2(100), pprice number);
+begin
+	INSERT INTO produ(pname, pprice) VALUES ('ABC', 100);
+    	INSERT INTO produ(pname, pprice) VALUES ('BCD', 200);
+end;
+/
+
+CREATE OR REPLACE PROCEDURE prod
+AS
+BEGIN
+    DELETE FROM produ WHERE pprice = 200;
+    DBMS_OUTPUT.PUT_LINE('Product with price 200 deleted successfully.');
+END;
+/
+
+BEGIN
+    prod;
+END;
+/

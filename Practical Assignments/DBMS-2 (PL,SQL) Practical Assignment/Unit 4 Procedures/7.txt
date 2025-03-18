@@ -1,0 +1,17 @@
+--7. Create a procedure to perform all the arithmatic operation on 2 numbers.
+CREATE OR REPLACE PROCEDURE arith(n1 IN NUMBER, n2 IN NUMBER)
+AS
+BEGIN
+	dbms_output.put_line('Addition = ' || (n1+n2));
+	dbms_output.put_line('Substraction = ' || (n1-n2));
+	dbms_output.put_line('Multiplication = ' || (n1*n2));
+ END;
+/
+
+DECLARE
+	n1 number := 4;
+	n2 number := 2;
+BEGIN
+	arith(n1, n2);
+END;
+/

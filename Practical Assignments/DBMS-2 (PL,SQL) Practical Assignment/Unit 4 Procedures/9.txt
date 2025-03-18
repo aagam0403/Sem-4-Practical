@@ -1,0 +1,14 @@
+--9. Create a procedure to perform both operation IN aand OUT as a parameter.
+create or replace procedure bot(n1 in out number)
+IS 
+begin
+dbms_output.put_line('Sum : '||(n1+n1));
+end;
+/
+
+declare
+a number:=5;
+begin
+bot(a);
+end;
+/

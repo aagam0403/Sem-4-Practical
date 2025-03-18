@@ -1,0 +1,16 @@
+--4. Create a procedure to display the users record. 
+create or replace procedure dis
+IS 
+cid excp2.id%type;
+csal excp2.sal%type;
+begin
+select id,sal into cid,csal from excp2 where id=1;
+dbms_output.put_line('ID : '||cid);
+dbms_output.put_line('Salary : '||csal);
+end;
+/
+
+begin
+dis;
+end;
+/
