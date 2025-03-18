@@ -1,0 +1,19 @@
+--3. Create a function to find maximum salary of an employee
+
+create or replace function max1
+return number
+IS
+c1 number;
+begin
+select MAX(SAL) into c1 from excp2;
+return c1;
+end;
+/
+
+declare
+m number;
+begin
+m:=max1;
+dbms_output.put_line('Max Salary : '||m);
+end;
+/

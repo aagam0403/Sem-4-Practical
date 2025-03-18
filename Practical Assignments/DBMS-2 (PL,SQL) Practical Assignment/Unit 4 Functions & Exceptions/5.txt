@@ -1,0 +1,18 @@
+--5. Create a function to find average salary of an employee.
+create or replace function avg1
+return number
+IS
+c1 number;
+begin
+select AVG(SAL) into c1 from excp2;
+return c1;
+end;
+/
+
+declare
+m number;
+begin
+m:=avg1;
+dbms_output.put_line('Average Salary : '||m);
+end;
+/

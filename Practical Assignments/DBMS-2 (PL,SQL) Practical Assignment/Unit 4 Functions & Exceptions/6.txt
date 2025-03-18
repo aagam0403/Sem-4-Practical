@@ -1,0 +1,18 @@
+--6. Create a function to find total salary of all employee.
+create or replace function tot
+return number
+IS
+c1 number;
+begin
+select SUM(SAL) into c1 from excp2;
+return c1;
+end;
+/
+
+declare
+m number;
+begin
+m:=tot;
+dbms_output.put_line('Total Salary : '||m);
+end;
+/

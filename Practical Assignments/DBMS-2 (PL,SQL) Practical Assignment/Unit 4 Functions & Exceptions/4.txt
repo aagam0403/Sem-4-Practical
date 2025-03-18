@@ -1,0 +1,18 @@
+--4. Create a function to find minimum salary of an employee.
+create or replace function min1
+return number
+IS
+c1 number;
+begin
+select MIN(SAL) into c1 from excp2;
+return c1;
+end;
+/
+
+declare
+m number;
+begin
+m:=min1;
+dbms_output.put_line('Min Salary : '||m);
+end;
+/

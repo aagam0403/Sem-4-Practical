@@ -1,0 +1,22 @@
+-- Q No.1
+create or replace function rev(n in number)
+return number 
+is
+num number:=n;
+rev_num number:=0;
+begin
+while(num>0) LOOP
+rev_num:=(rev_num*10)+mod(num,10);
+num:=TRUNC(num/10);
+end loop;
+return rev_num;
+end;
+/
+
+declare 
+ans number;
+begin
+ans:=rev(492);
+dbms_output.put_line('Reverse Number : '||ans);
+end;
+/
