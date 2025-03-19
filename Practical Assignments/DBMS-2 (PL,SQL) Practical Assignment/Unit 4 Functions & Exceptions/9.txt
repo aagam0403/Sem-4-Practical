@@ -1,0 +1,16 @@
+-- Q No.9
+
+DECLARE
+	a int;
+	b int;
+	c int;
+BEGIN
+	a:=&a;
+	b:=&b;
+	c:=a/b;
+	dbms_output.put_line('Answer : '||c);
+exception
+when zero_divide then
+	dbms_output.put_line('Error : Cant divide by 0');
+END;
+/

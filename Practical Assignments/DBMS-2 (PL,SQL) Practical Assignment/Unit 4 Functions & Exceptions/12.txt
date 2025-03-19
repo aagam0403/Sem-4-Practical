@@ -1,0 +1,18 @@
+-- Q No.12
+
+declare
+	c_sal int;
+	sal exception;
+begin
+	update excp2 set sal=sal+(sal*0.5) where id=2;
+	select sal into c_sal from excp2 where id=2;
+if (c_sal>25000) then
+	raise sal;
+else
+	dbms_output.put_line('Salary : '||c_sal);
+end if;
+exception
+when sal then
+	dbms_output.put_line('Salary is out of limit');
+end;
+/

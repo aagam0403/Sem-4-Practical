@@ -1,0 +1,25 @@
+-- Q No.11
+
+declare
+	a int;
+	b int;
+	c int;
+	num EXCEPTION;
+begin
+	a:=&a;
+	b:=&b;
+	c:=&c;
+if (a>b AND a>c) then
+	dbms_output.put_line('Max : '||a);
+elsif (b>a AND b>c) then
+	dbms_output.put_line('Max : '||b);
+elsif (c>a AND c>b) then
+	dbms_output.put_line('Max : '||c);
+else 
+	raise num;
+end if;
+EXCEPTION
+when num then
+	dbms_output.put_line('All are equal');
+end;
+/

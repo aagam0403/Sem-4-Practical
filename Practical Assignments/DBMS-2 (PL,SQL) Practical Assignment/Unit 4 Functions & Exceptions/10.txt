@@ -1,0 +1,12 @@
+-- Q No.10
+
+declare
+	c_id excp.id%type;
+begin
+	select id into c_id from excp where name='xyz';
+	dbms_output.put_line('ID : '||c_id);
+EXCEPTION
+when no_data_found then
+	dbms_output.put_line('No such row');
+end;
+/
