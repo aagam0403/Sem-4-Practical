@@ -1,0 +1,26 @@
+create table employee2(id int,name varchar2(10),dept varchar2(10));
+
+BEGIN
+INSERT INTO employee2 (id, name, dept) VALUES (1, 'Alice', 'HR');
+INSERT INTO employee2 (id, name, dept) VALUES (2, 'Bob', 'IT');
+INSERT INTO employee2 (id, name, dept) VALUES (3, 'Charlie', 'Finance');
+INSERT INTO employee2 (id, name, dept) VALUES (4, 'Diana', 'Marketing');
+INSERT INTO employee2 (id, name, dept) VALUES (5, 'Ethan', 'IT');
+END;
+/
+
+DECLARE
+c_id employee2.id%type;
+c_name employee2.name%type;
+c_dept employee2.dept%type;
+CURSOR c IS select id,name,dept from employee2 where dept='IT';
+BEGIN
+open c;
+loop
+fetch c into c_id,c_name,c_dept;
+exit when c%notfound;
+dbms_output.put_line('ID : ' || c_id || 'Name : ' || c_name || ' Dept : ' || c_dept);
+end loop;
+close c;
+end;
+/

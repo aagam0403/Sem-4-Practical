@@ -1,0 +1,21 @@
+-- Q No.10
+DECLARE
+    v_id   employee.id%TYPE;
+    v_name employee.name%TYPE;
+BEGIN
+    SELECT id, name INTO v_id, v_name FROM employee WHERE id = 1;
+    DBMS_OUTPUT.PUT_LINE('Employee Found: ID=' || v_id || ', Name=' || v_name);
+
+    IF SQL%NOTFOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No rows found using %NOTFOUND.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Row found using %NOTFOUND.');
+    END IF;
+
+    IF SQL%ISOPEN THEN
+        DBMS_OUTPUT.PUT_LINE('Implicit Cursor is OPEN.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Implicit Cursor is CLOSED.');
+    END IF;
+END;
+/

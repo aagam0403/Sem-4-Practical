@@ -1,0 +1,14 @@
+-- Q No.5
+
+declare
+rows number;
+begin
+update employee2 set id=id+1;
+if sql%notfound then
+dbms_output.put_line('No record');
+elsif sql%found then
+rows:=sql%rowcount;
+dbms_output.put_line('Row count : '||rows);
+end if;
+end;
+/

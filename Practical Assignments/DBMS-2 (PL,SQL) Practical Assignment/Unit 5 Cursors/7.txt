@@ -1,0 +1,26 @@
+-- Q No.7
+
+DECLARE
+CURSOR c_cursor IS select id from prod_main;
+BEGIN
+OPEN c_cursor;
+IF c_cursor%isopen THEN
+dbms_output.put_line('CURSOR IS OPEN');
+ELSE
+dbms_output.put_line('CURSOR IS CLOSED');
+END IF;
+CLOSE c_cursor;
+END;
+-- FOR CLOSED
+DECLARE
+CURSOR c_cursor IS select id from prod_main;
+BEGIN
+OPEN c_cursor;
+CLOSE c_cursor;
+IF c_cursor%isopen THEN
+dbms_output.put_line('CURSOR IS OPEN');
+ELSE
+dbms_output.put_line('CURSOR IS CLOSED');
+END IF;
+END;
+/

@@ -1,0 +1,16 @@
+-- Q No.2
+
+DECLARE
+c_name employee.name%type;
+c_sal employee.sal%type;
+CURSOR c IS select name,sal from employee;
+begin
+open c;
+loop
+fetch c into c_name,c_sal;
+exit when c%notfound;
+dbms_output.put_line('Name : ' || c_name || ' Salary : ' || c_sal);
+end loop;
+close c;
+end;
+/

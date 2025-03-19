@@ -1,0 +1,20 @@
+-- Q No.6
+
+DECLARE
+    c_id employee2.id%TYPE;
+    c_name employee2.name%TYPE;
+    c_dept employee2.dept%TYPE;
+    rows INT := 0;  
+    CURSOR c IS 
+        SELECT id, name, dept FROM employee2 WHERE dept = 'IT';
+BEGIN
+    OPEN c;
+    LOOP
+        FETCH c INTO c_id, c_name, c_dept;
+        EXIT WHEN c%NOTFOUND OR rows > 3;
+        rows := rows + 1;
+        DBMS_OUTPUT.PUT_LINE('ID : ' || c_id || ' Name : ' || c_name || ' Department : ' || c_dept);
+    END LOOP;
+    CLOSE c;
+END;
+/

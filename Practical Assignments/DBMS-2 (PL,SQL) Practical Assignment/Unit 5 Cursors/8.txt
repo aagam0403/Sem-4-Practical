@@ -1,0 +1,9 @@
+-- Q No.8
+
+DECLARE
+v_count NUMBER;
+BEGIN
+SELECT COUNT(*) INTO v_count FROM employee2;
+DBMS_OUTPUT.PUT_LINE('Total Rows: ' || v_count);
+END;
+/
