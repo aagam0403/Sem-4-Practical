@@ -7,7 +7,6 @@ CREATE TABLE Product (
     Prod_expdate DATE
 );
 
--- Insert 5 records
 INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
 VALUES (201, 'Soap', 50.00, 'Company A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), TO_DATE('2025-01-01', 'YYYY-MM-DD'));
 
