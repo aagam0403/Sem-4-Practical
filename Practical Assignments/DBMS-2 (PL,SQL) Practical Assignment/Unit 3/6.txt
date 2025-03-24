@@ -8,7 +8,6 @@ CREATE TABLE Product (
     Prod_expdate DATE
 );
 
--- Insert 5 records
 INSERT INTO Product (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate) 
 VALUES ('P101', 'Soap', 50.00, 'Company A', TO_DATE('2024-01-01', 'YYYY-MM-DD'), TO_DATE('2025-01-01', 'YYYY-MM-DD'));
 
@@ -37,24 +36,19 @@ CREATE TABLE Product_new (
     Updated_at   TIMESTAMP DEFAULT SYSTIMESTAMP
 );
 
--- Create a BEFORE UPDATE trigger to back up old records before updating the expiry date for P105
 CREATE OR REPLACE TRIGGER before_product_update
 BEFORE UPDATE ON Product
 FOR EACH ROW
 BEGIN
-    -- Check if the updated record has Prod_id = 'P105' and the expiry date is changed
     IF :OLD.Prod_id = 'P105' AND :OLD.Prod_expdate <> :NEW.Prod_expdate THEN
-        -- Backup the old record before updating
         INSERT INTO Product_new (Prod_id, Prod_name, Prod_amt, Prod_comp, Prod_mfgdate, Prod_expdate, Updated_at)
         VALUES (:OLD.Prod_id, :OLD.Prod_name, :OLD.Prod_amt, :OLD.Prod_comp, :OLD.Prod_mfgdate, :OLD.Prod_expdate, SYSTIMESTAMP);
     END IF;
 END;
 /
 
--- Test update to trigger the backup
 UPDATE Product 
 SET Prod_expdate = TO_DATE('2026-10-10', 'YYYY-MM-DD') 
 WHERE Prod_id = 'P105';
 
--- Check backed-up records
 SELECT * FROM Product_new;
