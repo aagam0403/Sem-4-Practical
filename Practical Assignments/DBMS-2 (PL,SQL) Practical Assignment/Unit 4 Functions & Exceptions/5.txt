@@ -1,4 +1,3 @@
---5. Create a function to find average salary of an employee.
 create or replace function avg1
 return number
 IS
