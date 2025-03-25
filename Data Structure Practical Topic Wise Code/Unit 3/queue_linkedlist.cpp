@@ -1,4 +1,3 @@
-// Queue using a Linkedlist
 #include <iostream>
 using namespace std;
 class node
