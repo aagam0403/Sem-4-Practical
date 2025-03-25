@@ -3,20 +3,14 @@ using namespace std;
 int main()
 {
     int i,j,temp,size,num;
-
     cout<<"Enter size of the array:";
     cin>>size;
-
     int arr[size];
-
     for(int i=0;i<size;i++)
     {
         cout<<"Enter elements:";
         cin>>arr[i];
     }
-
-    //Bubble Sort
-    
     for(int i=0;i<size-1;i++)
     {
         for(int j = 0;j<=(size-1)-i;j++)
@@ -29,7 +23,6 @@ int main()
             }
         }
     }
-
     for(int i=0;i<size;i++)
     {
         cout<<"["<<arr[i]<<"]";
