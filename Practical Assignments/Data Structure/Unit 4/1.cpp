@@ -67,6 +67,5 @@ int main()
     cout << "\nPreorder Traversal:\n";
     preorder(tree);
     cout << endl;
-
     return 0;
 }
