@@ -20,13 +20,4 @@
 		s="hello how are u??";    
 		System.out.println(s);  
 		System.out.println("String hashcode:" + s.hashCode()); 
-    }}  
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }}
