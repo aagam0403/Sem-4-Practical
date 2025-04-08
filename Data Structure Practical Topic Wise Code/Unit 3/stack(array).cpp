@@ -29,6 +29,7 @@ void peek()
 {
     cout<<"The Popped Element is "<<stack[top]<<endl;
 }
+
 void display()
 {
     if(top>=0)
