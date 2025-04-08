@@ -1,6 +1,5 @@
 #include<iostream>
 #define MAX 10
-// #include <queue>
 using namespace std;
 int queue[MAX];
 int front = -1, rear = -1;
