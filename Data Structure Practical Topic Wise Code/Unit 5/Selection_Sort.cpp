@@ -1,42 +1,34 @@
+//SELECTION SORT
 #include <iostream>
 using namespace std;
-int main()
+void selectionSort(int arr[], int n)
 {
-    int size;
-
-    cout<<"Enter size of array:";
-    cin>>size;
-
-    int arr[size];
-
-    for(int i=0;i<size;i++)
+    for(int i=0; i<n; i++)
     {
-        cout<<"Enter elements:";
-        cin>>arr[i];
-    }
-
-    for(int i=0;i<size;i++)
-    {
-        cout<<"["<<arr[i]<<"]";
-    }
-
-    int pos,smallest,temp;
-    smallest = arr[0];
-    for(int i=0;i<size-1;i++)
-    {
-        for(int j=0;j<(size-1)-i;j++)
+        int SmallestIdx = i; //assume that unsorted part starting
+        for(int j=i+1; j<n; j++)
         {
-            if(arr[j]<smallest)
+            if(arr[j] < arr[SmallestIdx])
             {
-                temp = smallest;
-                smallest = arr[j];
-                arr[j] = smallest;
+                SmallestIdx=j;
             }
         }
+        swap(arr[i],arr[SmallestIdx]);
     }
-    
-    for(int i=0;i<size;i++)
+}
+void printArray(int arr[], int n)
+{
+    for(int i=0; i<n; i++)
     {
-        cout<<"["<<arr[i]<<"]";
+        cout<< arr[i] << " ";
     }
+    cout<<endl;
+}
+int main() 
+{
+    int n=5;
+    int arr[] = {4,1,5,2,3};
+    selectionSort(arr,n);
+    printArray(arr,n);
+    return 0;
 }
