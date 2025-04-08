@@ -1,30 +1,32 @@
+//BUBBLE SORT
 #include <iostream>
 using namespace std;
-int main()
+void bubbleSort(int arr[], int n)
 {
-    int i,j,temp,size,num;
-    cout<<"Enter size of the array:";
-    cin>>size;
-    int arr[size];
-    for(int i=0;i<size;i++)
+    for(int i=0; i<n-1; i++)
     {
-        cout<<"Enter elements:";
-        cin>>arr[i];
-    }
-    for(int i=0;i<size-1;i++)
-    {
-        for(int j = 0;j<=(size-1)-i;j++)
+        for(int j=0; j<n-i-1; j++)
         {
             if(arr[j] > arr[j+1])
             {
-                temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+                swap(arr[j], arr[j+1]);   
             }
         }
     }
-    for(int i=0;i<size;i++)
+}
+void printArray(int arr[], int n)
+{
+    for(int i=0; i<n; i++)
     {
-        cout<<"["<<arr[i]<<"]";
+        cout<< arr[i] << " ";
     }
+    cout<<endl;
+}
+int main() 
+{
+    int n=5;
+    int arr[] = {4,1,5,2,3};
+    bubbleSort(arr,n);
+    printArray(arr,n);
+    return 0;
 }
