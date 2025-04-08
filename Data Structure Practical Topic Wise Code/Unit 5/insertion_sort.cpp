@@ -1,43 +1,33 @@
-// CPP program for insertion sort 
-#include<iostream>
+//INSERTION SORT
+#include <iostream>
 using namespace std;
-#define size 5
-void insertion_sort(int arr[], int n);
-int main()
+void insertionSort(int arr[], int n)
 {
-	int arr[size],i,n;
-	cout<<"Enter the number of elements in the array : \n";
-	cin>>n;
-	cout<<"\n Enter the elements of the array";
-	for(i=0;i<n;i++)
-	{
-		cin>>arr[i];
-
-	}
-	insertion_sort(arr,n);     
-	cout<<"\n Sorted array is \n";
-	for(i=0;i<n;i++)
-	{
-		cout<<arr[i]<<endl;
-	}
-	return 0;
+    for(int i=1; i<n; i++)
+    {
+        int curr = arr[i];
+        int prev = i-1;
+        while(prev >= 0 && arr[prev]>curr)
+        {
+            arr[prev+1] = arr[prev];
+            prev--;
+        }
+        arr[prev+1] = curr;
+    }
 }
-
-void insertion_sort(int arr[], int n)   
-{  
-	int i,j,temp;
-	for(i=1;i<n;i++)    
-	{
-		temp=arr[i];    
-		j=i-1;            
-		while((temp<arr[j]) && (j>=0))    
-		{
-			arr[j+1]=arr[j];       
-	
-			j--;                              
-		}
-		
-		arr[j+1]=temp;    
-	}
-} 
-
+void printArray(int arr[], int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout<< arr[i] << " ";
+    }
+    cout<<endl;
+}
+int main() 
+{
+    int n=5;
+    int arr[] = {4,1,5,2,3};
+    insertionSort(arr,n);
+    printArray(arr,n);
+    return 0;
+}
