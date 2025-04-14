@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class Student{
+class Student{
+
         int no;
         string name;
         string address;
