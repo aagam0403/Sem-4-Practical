@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-
 class node
 {
 public:
@@ -8,9 +7,7 @@ public:
     node *left;
     node *right;
 };
-
 node *tree = NULL;
-
 node *insert(node *tree)
 {
     int val;
