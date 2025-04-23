@@ -32,6 +32,7 @@ class Car extends MotorVehicle
         System.out.println("Price after Discount: " + discountedPrice);
     }
 }
+
 public class assignment1
 {
     public static void main(String args[])
