@@ -16,7 +16,6 @@ bool isLowerTriangularMatrix(int mat[4][4])
     }
     return true; //it is a lower triangular matrix
 }
-
 int main()
 {
     // Define a 4x4 matrix for testing
