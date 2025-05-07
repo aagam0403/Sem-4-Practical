@@ -9,7 +9,6 @@ BEGIN
         sum := sum + digit;   
         num := TRUNC(num / 10);
     END LOOP;
-
     DBMS_OUTPUT.PUT_LINE('The sum of the digits is: ' || sum);
 END;
 /
