@@ -28,7 +28,9 @@ node *create_ll(node *start) {
         new_node->next = start;
         new_node->prev = start;
         rear = new_node;
-        } else {
+        }
+        else 
+        {
         rear->next = new_node;
         new_node->prev = rear;
         new_node->next = start;
